@@ -3,12 +3,14 @@ const cors = require("cors");
 const { connection } = require("./db");
 const { userRouter } = require("./routes/userRoute");
 const { bookRouter } = require("./routes/bookRoute");
+const { bookReviewRouter } = require("./routes/bookReviewRoute");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use("/users", userRouter);
-app.use("/books", bookRouter)
+app.use("/books", bookRouter);
+app.use("/review", bookReviewRouter);
 
 app.get("/", (req, res)=>{
     res.status(200).send("Welcome to BookHavenX Backend")

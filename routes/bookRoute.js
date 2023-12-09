@@ -30,8 +30,6 @@ bookRouter.get("/", async (req, res) => {
       pipeline = [
         { $match: mongoQuery },
         { $sort: sortOptions },
-        // { $skip: (page - 1) * limit },
-        // { $limit: parseInt(limit) },
       ];
     } else {
       pipeline = [
